@@ -1,0 +1,20 @@
+[
+    {
+        "0": "2",
+        "clientId": "2",
+        "1": "John Marsh",
+        "fullName": "John Marsh",
+        "2": "1234 St",
+        "address": "1234 St",
+        "3": "Somewhere",
+        "city": "Somewhere",
+        "4": "TX",
+        "state": "TX",
+        "5": "77665",
+        "zipCode": "77665",
+        "6": "5555551224",
+        "phone": "5555551224",
+        "7": "johndoe@email.com",
+        "email": "johndoe@email.com"
+    }
+]
