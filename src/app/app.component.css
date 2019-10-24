@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #000000;
+    background-image: url("/assets/headerphoto.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    color: #dfdfdf;
+}
+
+/* Creates left columns/boxes */
+nav {
+    overflow: hidden;
+    background-color: #3d3d3d;
+}
+
+/* Style the list inside the menu */
+nav a {
+    padding: 0;
+    float: left;
+    text-align: center;
+    padding-right: 150px;
+    padding: 50px;
+    color: white;
+}
+
+/* Clear floats after the columns */
+section:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Creates right columns/boxes that floats next to the other */
+body {
+    padding: 20px 100px;
+    background-color: #ffffff;
+    min-height: 375px;
+    color: #000000;
+}
+
+/* Style the footer */
+footer {
+    background-color: #000000;
+    padding: px;
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    nav, body {
+        width: 100%;
+        height: auto;
+    }
+}

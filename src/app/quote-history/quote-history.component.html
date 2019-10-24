@@ -1,0 +1,36 @@
+<nav>
+  <ul>
+    <a [routerLink]="['/about']">
+      About
+    </a>
+    <a [routerLink]="['/client-info']">
+      Client Information
+    </a>
+    <a>
+      Quote History
+    </a>
+    <a [routerLink]="['/quote-request']">
+      Request a Quote
+    </a>
+    <a [routerLink]="['/login']">
+      Logout
+    </a>
+  </ul>
+</nav>
+<body>
+  <table class="tftable" border="1">
+    <tr><th>Item #</th>
+      <th>Request Date</th>
+      <th>Delivery Date</th>
+      <th>Gallons</th>
+      <th>Rate</th>
+      <th>Total Price</th></tr>
+      <tr *ngFor="let q of quoteHistory">
+        <td> {{q.quoteId}} </td>
+        <td> {{q.requestDate}} </td>
+        <td> {{q.deliveryDate}} </td>
+        <td> {{q.gallonsRequested}} </td>
+        <td> {{q.suggestedPrice}} </td>
+        <td> {{q.totalAmountDue}} </td></tr>
+  </table>
+</body>

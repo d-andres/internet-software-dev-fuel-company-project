@@ -1,0 +1,101 @@
+<nav>
+    <ul>
+        <a [routerLink]="['/about']">
+            About
+        </a>
+        <a>
+            Client Information
+        </a>
+        <a [routerLink]="['/quote-history']">
+            Quote History
+        </a>
+        <a [routerLink]="['/quote-request']">
+            Request a Quote
+        </a>
+        <a [routerLink]="['/login']">
+            Logout
+        </a>
+    </ul>
+</nav>
+
+<body>
+    <table>
+        <tr>
+            <td>Email: </td>
+            <td>{{client[0].email}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Name: </td>
+            <div *ngIf="edit[0]">
+                <td>{{client[0].fullName}}</td>
+                <td><button (click)="toggleEdit(0)">Edit</button></td>
+            </div>
+            <div *ngIf="!edit[0]">
+                <td><input id="fullName" name="fullName" required type="text"
+                    [(ngModel)]="client[0].fullName"></td>
+                <td><button (click)="saveData(0)">Save</button></td>
+            </div>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <div *ngIf="edit[1]">
+                <td>{{client[0].address}}</td>
+                <td><button (click)="toggleEdit(1)">Edit</button></td>
+            </div>
+            <div *ngIf="!edit[1]">
+                <td><input id="address" name="address" required type="text"
+                    [(ngModel)]="client[1].address"></td>
+                <td><button (click)="saveData(1)">Save</button></td>
+            </div>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <div *ngIf="edit[2]">
+                <td>{{client[0].city}}</td>
+                <td><button (click)="toggleEdit(2)">Edit</button></td>
+            </div>
+            <div *ngIf="!edit[2]">
+                <td><input id="city" name="city" required type="text"
+                    [(ngModel)]="client[2].city"></td>
+                <td><button (click)="saveData(2)">Save</button></td>
+            </div>
+        </tr>
+        <tr>
+            <td>State: </td>
+            <div *ngIf="edit[3]">
+                <td>{{client[0].state}}</td>
+                <td><button (click)="toggleEdit(3)">Edit</button></td>
+            </div>
+            <div *ngIf="!edit[3]">
+                <td><input id="state" name="state" required type="text" maxlength ="2"
+                    [(ngModel)]="client[3].state"></td>
+                <td><button (click)="saveData(3)">Save</button></td>
+            </div>
+        </tr>
+        <tr>
+            <td>Zip Code: </td>
+            <div *ngIf="edit[4]">
+                <td>{{client[0].zipCode}}</td>
+                <td><button (click)="toggleEdit(4)">Edit</button></td>
+            </div>
+            <div *ngIf="!edit[4]">
+                <td><input id="zipCode" name="zipCode" required type="text" maxlength ="5"
+                    [(ngModel)]="client[4].zipCode"></td>
+                <td><button (click)="saveData(4)">Save</button></td>
+            </div>
+        </tr>
+        <tr>
+            <td>Phone Number: </td>
+            <div *ngIf="edit[5]">
+                <td>{{client[0].phone}}</td>
+                <td><button (click)="toggleEdit(5)">Edit</button></td>
+            </div>
+            <div *ngIf="!edit[5]">
+                <td><input id="phone" name="phone" required type="text" maxlength ="10"
+                    [(ngModel)]="client[5].phone"></td>
+                <td><button (click)="saveData(5)">Save</button></td>
+            </div>
+        </tr>
+    </table>
+</body>

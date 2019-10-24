@@ -1,0 +1,16 @@
+<body>
+  <div *ngIf="!logged">
+    <h3>Login</h3>
+    <form (ngSubmit)="submit($event)">
+      <input type="text" placeholder="Username(Email)" id="username"><p></p>
+      <input type="password" placeholder="Password" id="password"><p></p>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <div *ngIf="logged">
+    <h3>Successful Login.</h3>
+    <a [routerLink]="['/about']">
+      Continue.
+    </a>
+  </div>
+</body>

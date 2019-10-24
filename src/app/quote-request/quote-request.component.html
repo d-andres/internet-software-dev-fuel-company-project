@@ -1,0 +1,143 @@
+<nav>
+  <ul>
+    <a [routerLink]="['/about']">
+      About
+    </a>
+    <a [routerLink]="['/client-info']">
+      Client Information
+    </a>
+    <a [routerLink]="['/quote-history']">
+      Quote History
+    </a>
+    <a>
+      Request a Quote
+    </a>
+    <a [routerLink]="['/login']">
+      Logout
+    </a>
+  </ul>
+</nav>
+<body>
+  <h3>Quote Request Form</h3>
+  <div *ngIf="toggleForm">
+  <form #quoteForm="ngForm" (ngSubmit)="submit($event)">
+    <input id="gallonsReq" name="gallonsReq" required type="number" min = 1
+      [(ngModel)]="quote.gallonsRequested"
+      placeholder="Enter Gallons Requested"
+      class='form-control' #gRequestedControl="ngModel">
+    <div *ngIf="(gRequestedControl.touched || gRequestedControl.dirty) && gRequestedControl.errors">
+        <div class="a" [hidden]="!gRequestedControl.errors">
+          Please enter a valid Amount.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="delDate" name="delDate" required type="date"
+      [(ngModel)]="quote.deliveryDate"
+      placeholder="Enter Delivery Date"
+      class='form-control' #dDateControl="ngModel">
+    <div *ngIf="(dDateControl.touched || dDateControl.dirty) && dDateControl.errors">
+        <div class="a" [hidden]="!dDateControl.errors">
+          Please enter a valid Date.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="delAddress" name="delAddress" required type="text"
+      [(ngModel)]="quote.deliveryAddress"
+      placeholder="Enter Delivery Address"
+      class='form-control' #dAddressControl="ngModel">
+    <div *ngIf="(dAddressControl.touched || dAddressControl.dirty) && dAddressControl.errors">
+        <div class="a" [hidden]="!dAddressControl.errors">
+          Please enter a valid Address.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="delCity" name="delCity" required type="text"
+      [(ngModel)]="quote.deliveryCity"
+      placeholder="Enter Delivery City"
+      class='form-control' #dCityControl="ngModel">
+    <div *ngIf="(dCityControl.touched || dCityControl.dirty) && dCityControl.errors">
+        <div class="a" [hidden]="!dCityControl.errors">
+          Please enter a valid City.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="delState" name="delState" required type="text" maxlength ="2"
+      [(ngModel)]="quote.deliveryState"
+      placeholder="Enter Delivery State"
+      class='form-control' #dStateControl="ngModel">
+    <div *ngIf="(dStateControl.touched || dStateControl.dirty) && dStateControl.errors">
+        <div class="a" [hidden]="!dStateControl.errors">
+          Please enter a valid State.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="delZip" name="delZip" required type="text" minlength="5" maxlength ="5"
+      [(ngModel)]="quote.deliveryZipCode"
+      placeholder="Enter Delivery Zip Code"
+      class='form-control' #dZipControl="ngModel">
+    <div *ngIf="(dZipControl.touched || dZipControl.dirty) && dZipControl.errors">
+        <div class="a" [hidden]="!dZipControl.errors">
+          Please enter a valid Zip Code.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="conName" name="conName" required type="text"
+      [(ngModel)]="quote.deliveryContactName"
+      placeholder="Enter Contact Name"
+      class='form-control' #cNameControl="ngModel">
+    <div *ngIf="(cNameControl.touched || cNameControl.dirty) && cNameControl.errors">
+        <div class="a" [hidden]="!cNameControl.errors">
+          Please enter a valid Name.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="conPhone" name="conPhone" required type="text" minlength="10" maxlength ="10"
+      [(ngModel)]="quote.deliveryContactPhone"
+      placeholder="Enter Contact Phone Number"
+      class='form-control' #cPhoneControl="ngModel">
+    <div *ngIf="(cPhoneControl.touched || cPhoneControl.dirty) && cPhoneControl.errors">
+        <div class="a" [hidden]="!cPhoneControl.errors">
+          Please enter a valid Phone Number.
+        </div>
+    </div>
+    <p></p>
+
+    <input id="conEmail" name="conEmail" required type="email"
+      [(ngModel)]="quote.deliveryContactEmail"
+      placeholder="Enter Contact Email"
+      class='form-control' #cEmailControl="ngModel">
+    <div *ngIf="(cEmailControl.touched || cEmailControl.dirty) && cEmailControl.errors">
+        <div class="a" [hidden]="!cEmailControl.errors">
+          Please enter a valid Email.
+        </div>
+    </div>
+    <p></p>
+    <input type="submit" value="Get Estimate" [disabled]="!quoteForm.valid">
+  </form>
+  </div>
+  <div *ngIf="!toggleForm">
+    <table>
+      <tr>
+        <td>Gallons Requested: </td>
+        <td>{{quote.gallonsRequested}}</td>
+      </tr>
+      <tr>
+        <td>Price per Gallon: </td>
+        <td>${{quote.suggestedPrice}}</td>
+      </tr>
+      <tr>
+        <td>Total Amount: </td>
+        <td>${{quote.totalAmountDue}}</td>
+      </tr>
+      <button (click)="sendQuote()">Confirm</button>
+      <button (click)="togForm()">Cancel</button>
+    </table>
+  </div>
+</body>
